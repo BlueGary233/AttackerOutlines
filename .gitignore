@@ -1,0 +1,35 @@
+# Log files
+*.log
+anim_event.log
+target_change.log
+event_index.log
+
+# Cache files
+event_index_cache.lua
+
+# Temporary files
+*.tmp
+*.temp
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Compiled files
+*.pyc
+__pycache__/
+
+# Archive files
+*.7z
+*.zip
+*.rar
+
+# Backup files
+*.bak
+*.backup
