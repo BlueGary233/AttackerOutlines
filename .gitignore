@@ -4,9 +4,6 @@ anim_event.log
 target_change.log
 event_index.log
 
-# Cache files
-event_index_cache.lua
-
 # Temporary files
 *.tmp
 *.temp
