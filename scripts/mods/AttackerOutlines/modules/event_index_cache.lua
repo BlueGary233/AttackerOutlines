@@ -288,7 +288,6 @@ local EVENT_INDEX_CACHE = {
         ["hip_fire"] = 361,
     },
     ["cultist_grenadier"] = {
-
         ["attack_kick_01"] = 63,
         ["attack_kick_02"] = 158,
         ["cultist_grenadier_throw"] = 15,
@@ -324,8 +323,13 @@ local EVENT_INDEX_CACHE = {
         ["attack_run_02"] = 294,
         ["attack_run_03"] = 113,
     },
+    ["cultist_mutant"] = {
+        ["charge_grab_prep"] = 34,
+    },
+    ["cultist_mutant_mutator"] = {
+        ["charge_grab_prep"] = 34,
+    },
     ["cultist_shocktrooper"] = {
-
         ["attack_04"] = 150,
         ["attack_05"] = 14,
         ["attack_06"] = 189,
@@ -352,7 +356,6 @@ local EVENT_INDEX_CACHE = {
         ["turn_shoot_right"] = 264,
     },
     ["renegade_assault"] = {
-
         ["aim_standing"] = 84,
         ["attack_04"] = 150,
         ["attack_05"] = 13,
@@ -464,6 +467,10 @@ local EVENT_INDEX_CACHE = {
         ["attack_run_01"] = 260,
         ["attack_run_02"] = 318,
         ["attack_run_03"] = 121,
+    },
+    ["renegade_netgunner"] = {
+        ["aim_loop"] = 269,
+        ["shoot_net"] = 84,
     },
     ["renegade_plasma_gunner"] = {
         ["attack_04"] = 150,

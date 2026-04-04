@@ -3,6 +3,29 @@
 -- 远程结束动作："out_of_aim","shoot_finished"
 local ATTACK_TIMING_TABLE = {
 
+    -- 两种牛牛
+    cultist_mutant_mutator = {
+        charge_grab_prep = -1,
+        _attack_types = {
+            special_attacks = {"charge_grab_prep"}
+        }
+    },
+
+    cultist_mutant = {
+        charge_grab_prep = -1,
+        _attack_types = {
+            special_attacks = {"charge_grab_prep"}
+        }
+    },
+
+    -- 网子姐
+    renegade_netgunner = {
+        aim_loop = -1,
+        shoot_net = -1,
+        _attack_types = {
+            special_attacks = {"shoot_net", "aim_loop"}
+        }
+    },
     -- 三种狗
     chaos_hound_mutator = {
         attack_leap_start = 0.6666666666666666,
@@ -549,7 +572,7 @@ local ATTACK_TIMING_TABLE = {
         attack_move_02 = 1.1851851851851851,
         attack_reach_up = 0.6923076923076923,
         _attack_types = {
-            strong_attacks = {"attack_down_01"}
+            strong_attacks = {"attack_02", "attack_move_01", "attack_01", "attack_down_01"}
         }
     },
 

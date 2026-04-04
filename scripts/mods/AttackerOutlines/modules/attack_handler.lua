@@ -169,7 +169,8 @@ local function is_special_attack(breed_name, anim_event_name)
         "attack_grab",            -- 混沌卵抓取
         "attack_grab_player",     -- 混沌卵抓取
         "attack_grab_player_ogryn", -- 混沌卵抓取
-        "force_shield_knockback"  -- 连长盾击退
+        "force_shield_knockback", -- 连长盾击退
+        "attack_vomit_start"      -- 小蛋糕呕吐
     }
     
     for _, special_attack in ipairs(special_attacks) do
@@ -394,6 +395,26 @@ local function handle_attack_animation(unit, anim_event_name, add_outline_func, 
                 end
             end
         end
+        
+        -- 检查是否需要移除特殊攻击轮廓线（timing为-1的攻击）
+        if anim_state.has_special_outline then
+            -- 之前有特殊攻击轮廓线，检查新动画是否还是特殊攻击
+            local was_special = is_special_attack(breed_name, last_anim_event)
+            local is_special = is_special_attack(breed_name, anim_event_name)
+            
+            if was_special and not is_special then
+                -- 之前是特殊攻击，现在不是了，移除特殊攻击轮廓线
+                remove_outline_func(unit, "attacker_outline_special_attack")
+                
+                -- 更新状态
+                anim_state.has_special_outline = false
+                
+                if ui.debug_mode then
+                    log.debug_output(string.format("[动画改变] 单位: %s, 旧动画: %s, 新动画: %s - 移除特殊攻击轮廓线", 
+                        tostring(unit), last_anim_event, anim_event_name))
+                end
+            end
+        end
     end
     
     -- 检查是否是远程攻击
@@ -429,6 +450,26 @@ local function handle_attack_animation(unit, anim_event_name, add_outline_func, 
         if ui.debug_mode then
             log.debug_output(string.format("[远程结束动作] 单位: %s, 动画: %s - 移除远程攻击轮廓线", 
                 tostring(unit), anim_event_name))
+        end
+    end
+    
+    -- 检查是否是特殊攻击（timing为-1的攻击）
+    local is_special = is_special_attack(breed_name, anim_event_name)
+    if is_special then
+        -- 检查单位是否是敌人
+        if is_enemy(unit) then
+            -- 检查敌人的目标是否是玩家
+            local target_unit = get_enemy_target(unit)
+            if target_unit and is_player(target_unit) then
+                -- 特殊攻击的轮廓线会在handle_normal_attack_animation中通过process_pending_attacks添加
+                -- 这里只设置状态标志
+                anim_state.has_special_outline = true
+                
+                if ui.debug_mode then
+                    log.debug_output(string.format("[特殊攻击检测] 单位: %s, Breed: %s, 动画: %s - 标记为特殊攻击", 
+                        tostring(unit), breed_name or "unknown", anim_event_name))
+                end
+            end
         end
     end
     

@@ -9,7 +9,7 @@ return {
             {
                 setting_id = "debug_mode",
                 type = "checkbox",
-                default_value = true,
+                default_value = false,
             },
             {
                 setting_id = "outline_priority",
