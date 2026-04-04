@@ -35,7 +35,7 @@ AttackerOutlines 是一个为《战锤40K：暗潮》设计的游戏模组，它
 ## 🚀 安装方法
 
 ### 前置要求
-- [Darktide Mod Framework (DMF)](https://www.nexusmods.com/warhammer40kdarktide/mods/1)
+- [Darktide Mod Framework (DMF)](https://www.nexusmods.com/warhammer40kdarktide/mods/8)
 
 ### 安装步骤
 1. 确保已安装最新版本的DMF
