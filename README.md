@@ -163,7 +163,7 @@ AttackerOutlines is a game mod for Warhammer 40K: Darktide that displays colored
 ## 🚀 Installation
 
 ### Prerequisites
-- [Darktide Mod Framework (DMF)](https://www.nexusmods.com/warhammer40kdarktide/mods/1)
+- [Darktide Mod Framework (DMF)](https://www.nexusmods.com/warhammer40kdarktide/mods/8)
 
 ### Installation Steps
 1. Ensure you have the latest version of DMF installed
